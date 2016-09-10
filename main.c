@@ -10,67 +10,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//Função que realiza a troca (swap)
-void troca (int *ponteiro_1, int *ponteiro_2)
+int main()
 {
-	//criação e inicialização de uma variável auxiliar
-	int x = 0;
+	//criacao e inicializacao das variaveis e ponteiros
 	
-	//a variavel auxiliar recebe o conteúdo do primeiro ponteiro
-	x = *ponteiro_1;
-	//o primeiro ponteiro recebe o conteúdo do segundo ponteiro
-	*ponteiro_1 = *ponteiro_2;
-	//o segundo ponteiro recebe o conteudo armazenado na variável
-	*ponteiro_2 = x;
-}
-
-int main(int argc, char *argv[]) 
-{
-	//criação e inicilização das variaveis
-	int variavel_1 = 1, variavel_2 = 2;
-	char controle ='n', descarga;
+	//char MinhaString[] = {"1234567890"};
+	char MinhaString[] = {'1','2','3','4','5','6','7','8','9','0'};
+	char *MeuPonteiro = &MinhaString;
 	
-	// criação dos ponteiros
-	int *ponteiro_1, *ponteiro_2;
-	
-	//enquanto
-	while(1)
+	// exibe o valor contido em cada posicao da string a partir do endereço contido no ponteiro
+	do
 	{
-		//inciializa os ponteiros
-		ponteiro_1 = &variavel_1; //ponteiro_1 recebe o endereço da variavel_1
-		ponteiro_2 = &variavel_2; //ponteiro_2 recebe o endereço da variavel_2
-	
-		//exibe o valor contido em cada variavel a partir do endereço contido
-		//nos dois ponteiros		
-		printf("\nvariavel_1 = %i", *ponteiro_1);
-		printf("\nvariavel_2 = %i", *ponteiro_2);
-		
-		//Chama a função que realiza a troca (swap)
-		troca(ponteiro_1, ponteiro_2);
-		
-		//exibe o novo valor da variável após o swap
-		printf("\nvariavel_1 depois do swap = %i", *ponteiro_1);
-		//exibe o novo valor da variável após o swap
-		printf("\nvariavel_2 depois do swap = %i", *ponteiro_2);
-		
-		//exibe a solicitação de controle
-		printf("\n\nDeseja finalizar o programa? (s/n)");
-		//efetua a leitura do comando
-		scanf("%c", &controle);
-		
-		//se o comando indicar a finalização, finaliza o loop
-		if (controle == 's') break;
-		
-		//exibe a solicitação de um valor
-		printf("\nDigite um valor para a variavel_1: ");
-		//efetua a leitura do valor e transfere o valor para a variavel_1
-		scanf("%i", ponteiro_1);
-		
-		//exibe a solicitação de um valor
-		printf("\nDigite um valor para a variavel_1: ");
-		//efetua a leitura do valor e transfere o valor para a variavel_2
-		scanf("%i%c", ponteiro_2, &descarga);
+		printf("\nO MeuPonteiro aponta para o valor: %c\n", *MeuPonteiro);
+		MeuPonteiro++;
 	}
-	//retorna 0
+	while(*MeuPonteiro != 0);
+	
+	printf("\nO tamanho de MinhaString e: %i\n", sizeof(MinhaString));
+	
+	// retorna 0
 	return 0;
 }
